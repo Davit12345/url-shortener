@@ -1,0 +1,19 @@
+
+
+<div class="content">
+  <p>Shorten Page</p>
+
+  <div class="input-section">
+
+    <input  [(ngModel)]="link" placeholder="Input The URL " name="link" (change)="changeInput()">
+    <button (click)="doShorten()">Shorten</button>
+    <div class="error-text" *ngIf="errorText">{{errorText}}</div>
+  </div>
+
+  <div *ngIf="responseData">
+    <div class="result result1">Short url : <a target="_blank" *ngIf="responseData.short_link" [href]=[getRoutingLink(responseData.short_link)]>{{responseData.short_link}}</a></div>
+    <div class="result result2">Short url 2 : <a target="_blank" *ngIf="responseData.short_link2" [href]=[getRoutingLink(responseData.short_link2)]>{{responseData.short_link2}}</a></div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
